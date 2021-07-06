@@ -1,0 +1,11 @@
+{
+  "apps": [
+    {
+      "app_id": "app_813432c2-11d2-4e24-9433-15f29055d870",
+      "org_id": "user_44d334de-2f78-4f92-811e-fe9b8ae560c6",
+      "deploy_url": "https://push-n2-par-clevercloud-customers.services.clever-cloud.com/app_813432c2-11d2-4e24-9433-15f29055d870.git",
+      "name": "sark-sosies",
+      "alias": "sark-sosies"
+    }
+  ]
+}
