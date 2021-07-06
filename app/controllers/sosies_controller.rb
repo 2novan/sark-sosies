@@ -1,0 +1,2 @@
+class SosiesController < ApplicationController
+end
