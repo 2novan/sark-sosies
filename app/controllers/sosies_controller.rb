@@ -3,7 +3,7 @@ class SosiesController < ApplicationController
     @sosie = Sosie.new
   end
 
-  def create 
+  def create
     @sosie = Sosie.new(sosie_params)
     if @sosie.save
       redirect_to sosie_path(@sosie)
@@ -12,6 +12,10 @@ class SosiesController < ApplicationController
     end
   end
 
+  def index
+    @sosies = Sosie.all
+  end
+  
   def show
     @sosie = Sosie.find(params[:id])
   end
@@ -19,6 +23,6 @@ class SosiesController < ApplicationController
   private
 
   def sosie_params
-    params.require(:sosie).permit(:name, :description, :address, :price_per_day )
+    params.require(:sosie).permit(:name, :description, :address, :price_per_day)
   end
 end
