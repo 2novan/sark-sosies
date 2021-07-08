@@ -1,9 +1,11 @@
 class SosiesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+
   def new
     @sosie = Sosie.new
   end
 
-  def create 
+  def create
     @sosie = Sosie.new(sosie_params)
     @sosie.user = current_user
     if @sosie.save
@@ -11,6 +13,10 @@ class SosiesController < ApplicationController
     else
       render(:new)
     end
+  end
+
+  def index
+    @sosies = Sosie.all
   end
 
   def show
