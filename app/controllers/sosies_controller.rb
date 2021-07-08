@@ -1,4 +1,6 @@
 class SosiesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+
   def new
     @sosie = Sosie.new
   end
@@ -15,7 +17,7 @@ class SosiesController < ApplicationController
   def index
     @sosies = Sosie.all
   end
-  
+
   def show
     @sosie = Sosie.find(params[:id])
   end
