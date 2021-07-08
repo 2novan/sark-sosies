@@ -1,0 +1,13 @@
+.top-card {
+  flex: 1 0 auto;
+  border: solid black 1px;
+  text-align: center;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-radius: 8px;
+  background-color: $blue;
+  color: white;
+  padding: 4px;
+  font: $body-font;
+  font-size: 9px;
+}
