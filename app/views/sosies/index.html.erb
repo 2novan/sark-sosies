@@ -2,22 +2,23 @@
   <div class="row">
     <% @sosies.each do |sosie| %>
       <div class="col-md-3">
-        <div class="profile-card-4 text-center">
-          <% if sosie.photo.attached? %>
-            <%= cl_image_tag sosie.photo.key %>
-          <% else %>
-            <%= image_tag "placeholder.jpg", alt: "placeholder", class: "img img-responsive" %>
-          <% end %>
-          <div class="profile-content">
-            <div class="profile-name"><%= sosie.name %>
-            </div>
-            <div class="profile-description"><%= sosie.description %></div>
-            <div class="profile-overview">
-              <p>Price per day</p>
-              <h4>€<%= sosie.price_per_day %></h4>
+        <%= link_to sosy_path(sosie) do %>
+          <div class="profile-card-4 text-center">
+            <% if sosie.photo.attached? %>
+              <%= cl_image_tag sosie.photo.key %>
+            <% else %>
+              <%= image_tag "placeholder.jpg", alt: "placeholder", class: "img img-responsive" %>
+            <% end %>
+            <div class="profile-content">
+              <div class="profile-name"><%= sosie.name %>
+              </div>
+              <div class="profile-overview">
+                <p>Price per day</p>
+                <h4>€<%= sosie.price_per_day %></h4>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>
