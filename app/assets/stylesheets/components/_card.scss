@@ -47,8 +47,13 @@ body {
 }
 
 .profile-card-4 img {
+  object-fit: cover;
   transition: all 0.25s linear;
-  max-width: 300px;
+  width: 300px;
+  height: 300px;
+  max-width: 400px;
+  max-height: 300px;
+  object-position: center;
 }
 
 .profile-card-4 .profile-content {
