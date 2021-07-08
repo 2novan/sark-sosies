@@ -15,6 +15,10 @@ class SosiesController < ApplicationController
   def index
     @sosies = Sosie.all
   end
+  
+  def show
+    @sosie = Sosie.find(params[:id])
+  end
 
   private
 
