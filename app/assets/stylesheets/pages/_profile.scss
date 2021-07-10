@@ -1,0 +1,24 @@
+// .profile-container-5 {
+//   display: flex;
+//   justify-content: space-between;
+//   flex-direction: row;
+//   align-items: stretch;
+//   width: 80%;
+// }
+
+li {
+  list-style-type: none;  
+  color: $blue;
+}
+
+.container {
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+#create-btn {
+  align-items: center;
+  justify-content: space-around;
+
+}
