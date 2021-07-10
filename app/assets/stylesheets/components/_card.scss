@@ -69,7 +69,7 @@ body {
   right: 0px;
   top: -70px;
   color: #fff;
-  font-size: 17px;
+  font-size: 15px;
   background-color: rgba(0, 0, 0, 0.6);
 }
 
@@ -101,11 +101,11 @@ body {
 .profile-card-4 .profile-content::before {
   content: "";
   position: absolute;
-  height: 20px;
+  height: 18px;
   top: -10px;
   left: 0px;
   right: 0px;
-  background-color: #fff;
+  background-color: $yellow;
   z-index: 0;
   transform: skewY(3deg);
 }
