@@ -2,7 +2,6 @@
   <div class="title">
     <h1><%= @sosie.name %></h1>
   </div>
-
   <br>
   <div class="sosie-photo">
   <% if @sosie.photo.attached? %>
@@ -14,13 +13,22 @@
   </div>
 
   <h3>Description:
-  <br>"<strong><%= @sosie.description %>"</strong></h3>
+    <br>
+    "<strong><%= @sosie.description %>"</strong></h3>
   <br>
   <p>Address:
-  <br><%= @sosie.address %></p>
+    <br>
+    <%= @sosie.address %></p>
   <br>
   <button class="w-25 btn btn-lg btn-primary float-right rounded">
     Rent
   </button>
   <% @sosie %>
 </div>
+</p>
+<p><%= @sosie.price_per_day %></p>
+<button class="w-25 btn btn-lg btn-primary float-right rounded">
+  Rent
+</button>
+</div>
+<%= render partial: "bookings/booking_form", locals: {user: @user, sosie: @sosie, booking: @booking}  %>
