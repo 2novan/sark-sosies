@@ -21,11 +21,12 @@ class SosiesController < ApplicationController
 
   def show
     @sosie = Sosie.find(params[:id])
+    @booking = Booking.new
   end
 
   private
 
   def sosie_params
-    params.require(:sosie).permit(:name, :description, :address, :price_per_day, :photo )
+    params.require(:sosie).permit(:name, :description, :address, :price_per_day, :photo)
   end
 end

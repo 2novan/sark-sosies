@@ -2,20 +2,24 @@
   <div class="top-card">
     <h1><%= @sosie.name %></h1>
   </div>
-
   <br>
-  <div class="sosie-photo">
-    <%= cl_image_tag @sosie.photo.key, width: 400, height: 300, crop: :fill %>
-
-  </div>
-
+  <% if @sosie.photo.attached? %>
+    <%= cl_image_tag @sosie.photo.key, class: "img img-responsive" %>
+  <% else %>
+    <%= image_tag "placeholder.jpg", alt: "placeholder", class: "img img-responsive" %>
+  <% end %>
   <h3>Description:
-  <br>"<strong><%= @sosie.description %>"</strong></h3>
+    <br>
+    "<strong><%= @sosie.description %>"</strong></h3>
   <br>
   <p>Address:
-  <br><%= @sosie.address %></p>
+    <br>
+    <%= @sosie.address %></p>
   <br>
-  <button class="w-25 btn btn-lg btn-primary float-right rounded">
-    Rent
-  </button>
+</p>
+<p><%= @sosie.price_per_day %></p>
+<button class="w-25 btn btn-lg btn-primary float-right rounded">
+  Rent
+</button>
 </div>
+<%= render partial: "bookings/booking_form", locals: {user: @user, sosie: @sosie, booking: @booking}  %>
