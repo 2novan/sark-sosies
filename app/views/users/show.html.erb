@@ -1,0 +1,40 @@
+<div class="profile-container">
+  <div class="title">
+    <h1>My account:</h1>
+  </div>
+
+<div class="card-group">
+    <div class="profile-card col-sm-6">
+      <p><strong>Name:</strong></p>
+      <p><%= @user.name %></p>
+      <br>
+      <p><strong>Email:</strong></p>
+      <p><%= @user.email %></p>
+      <br>
+      <p><strong>Biography:</strong></p>
+      <p><%= @user.biography %></p>
+      <br>
+      <div class="btn btn-secondary btn-sm">
+        <%= link_to "Update profile", edit_user_registration_path(@user)  %> 
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="card-img-top col-sm-6">
+      <% if @user.avatar.attached? %>
+      <%= cl_image_tag @user.avatar.key, crop: :fill %>
+      <% end %>
+      </div> 
+    </div>
+  </div>
+
+  <div class="card-group">
+  <%= @user.sosy %>
+  </div>
+
+  <br>
+  <br>
+  <div class="btn btn-success"><%= link_to "Create new", new_sosy_path  %> </div>
+
+</div>
+
