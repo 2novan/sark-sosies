@@ -1,11 +1,15 @@
 <div class="home">
   <h1 class="welcome">Welcome to Sark-Sosies</h1>
   <div class="snapshot">
-    <button class="button1" href="/sosies">Show me more! </button>
+    <div class="cards">
+      <div class="row">
+        <% @sosies.first(4).each do |sosie| %>
+          <div class="col-md-3">
+            <%= render partial: "sosies/card", locals: {sosie: sosie} %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <%= link_to "Show me more!", "/sosies", class: "button1" %>
   </div>
-
-
-
-
-
 </div>

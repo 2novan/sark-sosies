@@ -23,25 +23,33 @@
 .snapshot{
   display: flex;
   justify-content: center;
-  margin: 30px 50px;
+  margin: 10px 50px 30px 50px;
   width: 75%;
   border-radius: 8px;
-  background-color: darkblue;
+  background-color: $blue;
   margin: 50px 50px;
-  height: 300px;
+  height: 480px;
   position: relative;
 }
 
 .button1{
-  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  height: 40px;
   width: 18%;
   margin: 15px;
   padding: 2px;
   border-radius: 8px;
-  background-color: purple;
+  background-color: $yellow;
   color: white;
   border: none;
   box-shadow: 3px 3px rgba(180, 180, 180, 0.2);
   position: absolute;
   bottom: 0;
+}
+
+.cards{
+  width: 90%;
+  margin-top: 15px;
 }
