@@ -16,7 +16,10 @@
     <br>
     <%= @sosie.address %></p>
   <br>
-  <button class="w-25 btn btn-lg btn-primary float-right rounded">
-    Rent
-  </button>
+</p>
+<p><%= @sosie.price_per_day %></p>
+<button class="w-25 btn btn-lg btn-primary float-right rounded">
+  Rent
+</button>
 </div>
+<%= render partial: "bookings/booking_form", locals: {user: @user, sosie: @sosie, booking: @booking}  %>
