@@ -6,6 +6,13 @@
       "deploy_url": "https://push-n2-par-clevercloud-customers.services.clever-cloud.com/app_813432c2-11d2-4e24-9433-15f29055d870.git",
       "name": "sark-sosies",
       "alias": "sark-sosies"
+    },
+    {
+      "app_id": "app_325f35b2-c512-40af-ab66-b47276f46d23",
+      "org_id": "user_6a9df5c3-8c14-488d-9801-3955e44d5c74",
+      "deploy_url": "https://push-n2-par-clevercloud-customers.services.clever-cloud.com/app_325f35b2-c512-40af-ab66-b47276f46d23.git",
+      "name": "sark-sosies",
+      "alias": "sark-sosies"
     }
   ]
 }
