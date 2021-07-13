@@ -14,7 +14,7 @@
 
 .search-form {
   border-radius: 10px;
-  width: 400px;
+  width: 600px;
 }
 
 .search-form-control {
@@ -29,7 +29,7 @@
 }
 
 .search-form-control .form-control {
-  height: 3.5rem;
+  height: 3.2rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   border: 1px solid #E7E7E7;
 }
@@ -38,10 +38,4 @@
   border: 1px solid #1EDD88;
   outline: none !important;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-
-.avatar {
-  border-radius: 50%;
-  border: 2px solid &blue;
-  margin: 5px 30px;
 }
