@@ -1,0 +1,48 @@
+<div class="container">
+
+  <div class="title">
+    <h1>My account:</h1>
+  </div>
+
+
+
+
+    <div class="card-group">
+        <div class="profile-card">
+          <p><strong>Name:</strong></p>
+          <p><%= @user.name %></p>
+          <br>
+          <p><strong>Email:</strong></p>
+          <p><%= @user.email %></p>
+          <br>
+          <p><strong>Biography:</strong></p>
+          <p><%= @user.biography %></p>
+          <br>
+          <div class="btn btn-secondary btn-sm">
+            <%= link_to "Update profile", edit_user_registration_path(@user)  %> 
+          </div>
+        </div>
+
+          <div class="profile-card">
+            <% if @user.avatar.attached? %>
+              <%= cl_image_tag @user.avatar.key, height: 400, width: 300, crop: :thumb %>
+            <% end %>
+          </div> 
+
+    <div class="profile-card">
+      <p><strong>My sosies:</strong></p>
+      <br>
+      <% @sosies.each do |sosie| %>
+      <ul>
+        <li>
+          <strong><%= link_to sosie.name, sosy_path(sosie) %></strong>
+        </li>
+      </ul>
+      <% end %>
+    </div> 
+
+  </div>
+
+  <div class="btn btn-success btn-lg btn-block" id="create-btn">
+    <%= link_to "Create new sosie", new_sosy_path  %> 
+  </div>

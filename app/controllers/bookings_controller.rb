@@ -18,6 +18,16 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.status = "Confirmed"
+  end
+
+  def refuse
+    @booking = Booking.find(params[:id])
+    @booking.status = "Refused"
+  end
+
   private
 
   def booking_params

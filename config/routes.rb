@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # resources :users
   get "/profile", to: "users#show", as: "profile"
+  get "/accept", to: "bookings#accept", as: "accept"
+  get "/refuse", to: "bookings#refuse", as: "refuse"
+
+  
   resources :sosies do
     resources :bookings, only: %i[new create show]
   end
