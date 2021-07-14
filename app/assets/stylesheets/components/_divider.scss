@@ -2,7 +2,19 @@ hr {
   margin-top: 1rem;
   margin-bottom: 1rem;
   border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid #495867;
+}
+
+// .card-body {
+//   hr {
+//     border: 0;
+//     border-top: 3px solid #495867;
+//   }
+// }
+
+hr #between-cards {
+  border: 0;
+
 }
 
 .divider {

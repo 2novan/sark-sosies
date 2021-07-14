@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get "/profile", to: "users#show", as: "profile"
   get "/accept/:id", to: "bookings#accept", as: "accept"
   get "/refuse/:id", to: "bookings#refuse", as: "refuse"
+  get "/delete/:id", to: "bookings#destroy", as: "destroy"
+
 
   
   resources :sosies do

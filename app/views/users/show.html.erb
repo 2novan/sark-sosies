@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row text-center">
       <div class="col-3">
@@ -28,8 +29,7 @@
               <%= link_to "Create new sosie", new_sosy_path  %> 
             </div>
           </div>
-        </div>
-      
+        </div>      
       <div class="col-9 ">
         <h1>Sosies</h1>
         <div class="d-flex flex-row flex-wrap">
@@ -44,39 +44,50 @@
   <hr/>
   <h1>Bookings</h1>
   <br>
-<div class="d-flex justify-content-center ">
-  <div class="card">
+<div class="row text-center card-group ">
       <% @bookings.each do |b| %>
-    <div class="d-flex card-body justify-content-center">
+  <div class="card border border-dark ">
+      <% case b.status %>
+      <% when "Confirmed" %>
+        <div class="card-body mb-6 bg-success">
+      <% when nil %>
+        <div class="card-body mb-6 bg-warning">
+      <% when "Refused" %>
+        <div class="card-body mb-6 bg-danger">
+      <% end %>
       <% sosie = Sosie.find(b.sosie_id) %>
       <% if sosie.photo.attached? %>
         <%= cl_image_tag sosie.photo.key, height: 100, width: 100, crop: :thumb, class:"sosie_picture" %>
       <% end %>
       <h5 class="card-title">Booking for <strong><%= sosie.name %></strong> </h5>
-      <br>
       <p class="card-text"><%= b.description %></p>
 
     </div>
       <div class="card-footer">
-      <% time = Time.zone.now %>
-        <p> Wanted at <%= b.address %> from: <%=  time-b.start_date  %> </p>
-        <% if b.status %>
-        <p><%= b.status %></p>
-        <% else %>
-        <p><%= "Pending" %></p>
-        <% end %>
+        <p> Requested at <em><%= b.address %></em> </p>
+        <p>on the <em><%= b.start_date.to_formatted_s %></em></p>
         <br>
+        <p>Status</p>
+        <p>---------</p>
+        <% if b.status %>
+        <p><strong><%= b.status %></strong></p>
+        <br>
+        <% else %>
+        <p><strong><%= "Pending" %></strong></p>
+        <br>
+        <% end %>
+        <div class="btn-group mb-3" role="group" aria-label= "Basic button group">
+          <button class="btn btn-success"><%= link_to "Confirm", accept_path(b)  %></button>
+          <button class="btn btn-danger"><%= link_to "Refuse", refuse_path(b)  %></button>
+        </div>
+          <hr>
+          <button class="btn btn-secondary"> <%= link_to "DELETE", destroy_path(b), data: {confirm: 'Are you sure?'} %> </button>
       </div>
-
-      <div class="btn-group" role="group" aria-label= "Basic button group">
-        <button class="btn btn-success"><%= link_to "Confirm", accept_path(b)  %></button>
-        <button class="btn btn-danger"><%= link_to "Refuse", refuse_path(b)  %></button>
-      </div>
+      <hr id="between-cards">
       <% end %>
-      <br>
   </div>
 </div>
 
 
-
 </div>
+  <br>

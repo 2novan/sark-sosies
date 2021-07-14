@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_sosy, only: :create
-  before_action :set_booking, only: [:show, :accept, :refuse]
+  before_action :set_booking, only: [:show, :accept, :refuse, :destroy]
 
   def create
     @booking = Booking.new(booking_params)
@@ -26,6 +26,12 @@ class BookingsController < ApplicationController
 
   def refuse
     @booking.status = "Refused"
+    redirect_to profile_path(current_user)
+    @booking.save
+  end
+
+  def destroy
+    @booking.destroy
     redirect_to profile_path(current_user)
     @booking.save
   end
