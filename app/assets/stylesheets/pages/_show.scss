@@ -1,4 +1,6 @@
 .container-show {
+  margin-left: 10%;
+  margin-right: 10%;
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -15,4 +17,59 @@
 }
 .Right {
   grid-area: Right;
+}
+
+.sosie-info {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  align-items: stretch;
+}
+.sosie-info h2 {
+  flex-grow: 3;
+}
+
+.sosie-info-price {
+  font-weight: 700;
+  color: $yellow;
+  text-align: right;
+  flex-grow: 1;
+}
+
+.show-photo img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  max-height: 30em;
+  border-radius: 5px;
+}
+
+.Form p {
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 10px;
+  // font-weight: 700;
+  background-color: $blue;
+  color: white;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.simple_form input {
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.simple_form textarea {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.btn-booking {
+  background-color: $yellow;
+  color: white;
 }

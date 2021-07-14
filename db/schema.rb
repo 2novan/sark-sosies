@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_13_175631) do
+ActiveRecord::Schema.define(version: 2021_07_14_083204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_07_13_175631) do
     t.datetime "end_date"
     t.datetime "start_date"
     t.integer "total_price"
-    t.text "address"
+    t.string "address"
     t.string "status"
     t.text "description"
     t.bigint "sosie_id", null: false
