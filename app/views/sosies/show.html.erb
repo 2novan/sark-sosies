@@ -1,24 +1,26 @@
 <div class="container-show p-4">
   <div class="Listing">
-    <div style="display: flex">
+    <div class="show-photo flex">
       <% if @sosie.photo.attached? %>
-        <%= cl_image_tag @sosie.photo.key, alt: "placeholder", style: "min-width: 30em" %>
+        <%= cl_image_tag @sosie.photo.key, alt: "placeholder" %>
       <% else %>
-        <%= image_tag "placeholder.jpg", alt: "placeholder", class: "img-fluid rounded" %>
+        <%= image_tag "placeholder.jpg", alt: "placeholder" %>
       <% end %>
-      <h1 class="h1">
-        <%= @sosie.name %>
-      </h1>
-      <p><%= @sosie.price_per_day %> €</p>
     </div>
-    <h3>Description:
-      "<strong><%= @sosie.description %>"</strong>
-    </h3>
+    <div class="sosie-info">
+      <h2>
+        <%= @sosie.name %>
+      </h2>
+      <h2 class="sosie-info-price">€<%= @sosie.price_per_day %> daily</h2>
+    </div>
     <p>
-      <%= @sosie.address %>
+      <%= @sosie.description %>
     </p>
   </div>
   <div class="Form">
+    <p>
+      <%= @sosie.address %>
+    </p>
     <%= render partial: "bookings/booking_form", locals: {user: @user, sosie: @sosie, booking: @booking}  %>
   </div>
   <div class="Right"></div>
