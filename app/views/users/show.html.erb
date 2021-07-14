@@ -52,19 +52,25 @@
       <% if sosie.photo.attached? %>
         <%= cl_image_tag sosie.photo.key, height: 100, width: 100, crop: :thumb, class:"sosie_picture" %>
       <% end %>
-      <h5 class="card-title">Booking for <%= sosie.name %> </h5>
+      <h5 class="card-title">Booking for <strong><%= sosie.name %></strong> </h5>
       <br>
       <p class="card-text"><%= b.description %></p>
 
     </div>
       <div class="card-footer">
-        <p> Wanted at <%= b.address %> from: <%=  b.end_date  %> <%= b.status %></p>
+      <% time = Time.zone.now %>
+        <p> Wanted at <%= b.address %> from: <%=  time-b.start_date  %> </p>
+        <% if b.status %>
+        <p><%= b.status %></p>
+        <% else %>
+        <p><%= "Pending" %></p>
+        <% end %>
         <br>
       </div>
 
       <div class="btn-group" role="group" aria-label= "Basic button group">
-        <button class="btn btn-success"><%= link_to "Confirm", accept_path  %></button>
-        <button class="btn btn-danger"><%= link_to "Refuse", refuse_path  %></button>
+        <button class="btn btn-success"><%= link_to "Confirm", accept_path(b)  %></button>
+        <button class="btn btn-danger"><%= link_to "Refuse", refuse_path(b)  %></button>
       </div>
       <% end %>
       <br>
