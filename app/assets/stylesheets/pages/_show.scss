@@ -1,0 +1,18 @@
+.container-show {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 30px;
+  grid-template-areas:
+    "Listing Form"
+    "Listing Right";
+}
+.Listing {
+  grid-area: Listing;
+}
+.Form {
+  grid-area: Form;
+}
+.Right {
+  grid-area: Right;
+}
