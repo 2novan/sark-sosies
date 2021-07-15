@@ -1,0 +1,35 @@
+.reg-form {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+
+  .form-group {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .form-check {
+    padding-top: 10px;
+  }
+  .button-login {
+    background-color: $blue;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+  }
+
+  .button-login:hover {
+    background-color: $light-blue;
+    transition: background 0.2s ease;
+  }
+
+  .button-login input {
+    color: white;
+    font-weight: 700;
+  }
+}
