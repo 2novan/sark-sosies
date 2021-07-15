@@ -40,3 +40,8 @@ document.addEventListener('turbolinks:load', () => {
     initAutocomplete2();
     initFlatpickr();
 });
+
+import { initMapbox } from '../plugins/init_mapbox';
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+})
