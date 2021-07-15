@@ -20,20 +20,20 @@ class BookingsController < ApplicationController
 
   def accept
     @booking.status = "Confirmed"
-    redirect_to profile_path(current_user)
     @booking.save
+    redirect_to profile_path(current_user)
   end
 
   def refuse
     @booking.status = "Refused"
-    redirect_to profile_path(current_user)
     @booking.save
+    redirect_to profile_path(current_user)
   end
 
   def destroy
     @booking.destroy
-    redirect_to profile_path(current_user)
     @booking.save
+    redirect_to profile_path(current_user)
   end
 
   private
