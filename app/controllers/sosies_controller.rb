@@ -27,6 +27,6 @@ class SosiesController < ApplicationController
   private
 
   def sosie_params
-    params.require(:sosie).permit(:name, :description, :address, :price_per_day, :photo)
+    params.require(:sosie).permit(:name, :description, :address, :celebrity, :price_per_day, :photo)
   end
 end
