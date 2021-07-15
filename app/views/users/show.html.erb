@@ -44,9 +44,10 @@
   <hr/>
   <h1>Bookings</h1>
   <br>
-<div class="row text-center card-group ">
+<div class="row text-center ">
       <% @bookings.each do |b| %>
-  <div class="card border border-dark ">
+  <div class="card col-md-3">
+  <br>
       <% case b.status %>
       <% when "Confirmed" %>
         <div class="card-body mb-6 bg-success">
@@ -84,8 +85,8 @@
           <button class="btn btn-secondary"> <%= link_to "DELETE", destroy_path(b), data: {confirm: 'Are you sure?'} %> </button>
       </div>
       <hr id="between-cards">
-      <% end %>
   </div>
+      <% end %>
 </div>
 
 
