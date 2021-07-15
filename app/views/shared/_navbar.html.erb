@@ -2,46 +2,43 @@
   <%= link_to "/", class: "navbar-brand home" do %>
     <%= image_tag "Sark-sosies_logo.png" %>
   <% end %>
-
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="search-form">
-    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
-    <div class="search-form-control form-group">
-      <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-      <button name="button" type="submit" class="btn btn-flat">
-        <i class="fas fa-search"></i> Search
-      </button>
+    <%= form_tag(search_page_path, :method => "get",
+    class: 'navbar-form navbar-left') do %>
+      <div class="input-group">
+        <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
+        <div class="input-group-btn">
+          <%= button_tag "", :class => 'btn',:name => nil%>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
-  </div>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-          <li class="nav-item dropdown">
-            <% if current_user && current_user.avatar.attached? %>
-              <%= cl_image_tag current_user.avatar.key, class: "myavatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <li class="nav-item dropdown">
+          <% if current_user && current_user.avatar.attached? %>
+            <%= cl_image_tag current_user.avatar.key, class: "myavatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", "/profile", class: "dropdown-item" %>
               <%= link_to "Log Out", "/users/sign_out", class: "dropdown-item", method: "delete" %>
             </div>
           </li>
-          <% elsif current_user %>
-            <li class="nav-item dropdown">
-              <%= image_tag "Unknown_person.jpeg", class: "myavatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <% elsif current_user %>
+          <li class="nav-item dropdown">
+            <%= image_tag "Unknown_person.jpeg", class: "myavatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", "/profile", class: "dropdown-item" %>
               <%= link_to "Log Out", "/users/sign_out", class: "dropdown-item", method: "delete"%>
-              </div>
-            </li>
-          <% else %>
-            <%= link_to "Login / Register", "/users/sign_in", class: "nav-link" %>
-          <% end %>
+            </div>
+          </li>
+        <% else %>
+          <%= link_to "Login / Register", "/users/sign_in", class: "nav-link" %>
+        <% end %>
       </li>
     </ul>
   </div>
 </div>
-
