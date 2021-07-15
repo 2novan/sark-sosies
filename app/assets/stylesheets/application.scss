@@ -8,6 +8,7 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import 'mapbox-gl/dist/mapbox-gl';
+@import url("https://fonts.googleapis.com/css2?family=Halant:wght@300;400;700&family=Nunito:wght@200;300;400;700&display=swap");
 
 // Your CSS partials
 @import "components/index";
@@ -16,4 +17,21 @@
 
 a {
   text-decoration: none; /* no underline */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Nunito", sans-serif;
+  margin: 0px;
+}
+
+input,
+p,
+a {
+  font-family: "Halant", serif;
+  margin: 0px;
 }

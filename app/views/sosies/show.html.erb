@@ -1,34 +1,27 @@
-<div class="container">
-  <div class="title">
-    <h1><%= @sosie.name %></h1>
+<div class="container-show p-4">
+  <div class="Listing">
+    <div class="show-photo flex">
+      <% if @sosie.photo.attached? %>
+        <%= cl_image_tag @sosie.photo.key, alt: "placeholder" %>
+      <% else %>
+        <%= image_tag "placeholder.jpg", alt: "placeholder" %>
+      <% end %>
+    </div>
+    <div class="sosie-info">
+      <h2>
+        <%= @sosie.name %>
+      </h2>
+      <h2 class="sosie-info-price">€<%= @sosie.price_per_day %> daily</h2>
+    </div>
+    <p>
+      <%= @sosie.description %>
+    </p>
   </div>
-  <br>
-  <div class="sosie-photo">
-  <% if @sosie.photo.attached? %>
-    <%= cl_image_tag @sosie.photo.key %>
-  <% else %>
-    <%= image_tag "placeholder.jpg", alt: "placeholder", class: "img img-responsive" %>
-  <% end %>
-
+  <div class="Form">
+    <p>
+      <%= @sosie.address %>
+    </p>
+    <%= render partial: "bookings/booking_form", locals: {user: @user, sosie: @sosie, booking: @booking}  %>
   </div>
-
-  <h3>Description:
-    <br>
-    "<strong><%= @sosie.description %>"</strong></h3>
-  <br>
-  <p>Address:
-    <br>
-    <%= @sosie.address %></p>
-  <br>
-  <button class="w-25 btn btn-lg btn-primary float-right rounded">
-    Rent
-  </button>
-  <% @sosie %>
+  <div class="Right"></div>
 </div>
-</p>
-<p><%= @sosie.price_per_day %></p>
-<button class="w-25 btn btn-lg btn-primary float-right rounded">
-  Rent
-</button>
-</div>
-<%= render partial: "bookings/booking_form", locals: {user: @user, sosie: @sosie, booking: @booking}  %>

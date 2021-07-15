@@ -1,45 +1,94 @@
+
 <div class="container">
-  <div class="title">
-    <h1>My account:</h1>
-  </div>
-
-
-    <div class="card-group">
-        <div class="profile-card">
-          <p><strong>Name:</strong></p>
-          <p><%= @user.name %></p>
-          <br>
-          <p><strong>Email:</strong></p>
-          <p><%= @user.email %></p>
-          <br>
-          <p><strong>Biography:</strong></p>
-          <p><%= @user.biography %></p>
-          <br>
-          <div class="btn btn-secondary btn-sm">
-            <%= link_to "Update profile", edit_user_registration_path(@user)  %> 
-          </div>
-        </div>
-
-          <div class="profile-card">
-            <% if @user.avatar.attached? %>
-              <%= cl_image_tag @user.avatar.key, height: 400, width: 300, crop: :thumb %>
-            <% end %>
-          </div> 
-
-    <div class="profile-card">
-      <p><strong>My sosies:</strong></p>
+  <div class="row text-center">
+      <div class="col-3">
+      <h1>Profile</h1>
       <br>
-      <% @sosies.each do |sosie| %>
-      <ul>
-        <li>
-          <strong><%= link_to sosie.name, sosy_path(sosie) %></strong>
-        </li>
-      </ul>
+        <div class="card p-4 rounded-4 m-2">
+            <% if @user.avatar.attached? %>
+            <div class="rounded">
+              <%= cl_image_tag @user.avatar.key, class:"avatar-large" %>
+            </div> 
+            <% end %>
+            <p><strong>Name</strong></p>
+            <p><%= @user.name %></p>
+            <br>
+            <p><strong>Email</strong></p>
+            <p><%= @user.email %></p>
+            <br>
+            <p><strong>Biography</strong></p>
+            <p><%= @user.biography %></p>
+            <br>
+            <br>
+            <div class="btn btn-secondary btn-sm">
+              <%= link_to "Update profile", edit_user_registration_path(@user)  %> 
+            </div>
+            <br>
+            <br>
+            <div class="btn-success btn-lg">
+              <%= link_to "Create new sosie", new_sosy_path  %> 
+            </div>
+          </div>
+        </div>      
+      <div class="col-9 ">
+        <h1>Sosies</h1>
+        <div class="d-flex flex-row flex-wrap">
+          <% @sosies.each do |sosie| %>
+            <div class="p-1 col-3">
+              <%= render partial: "card", locals: {sosie: sosie} %>
+            </div>
+        <% end %>
+        </div>
+      </div>
+  </div>
+  <hr/>
+  <h1>Bookings</h1>
+  <br>
+<div class="row text-center ">
+      <% @bookings.each do |b| %>
+  <div class="card col-md-3">
+  <br>
+      <% case b.status %>
+      <% when "Confirmed" %>
+        <div class="card-body mb-6 bg-success">
+      <% when nil %>
+        <div class="card-body mb-6 bg-warning">
+      <% when "Refused" %>
+        <div class="card-body mb-6 bg-danger">
       <% end %>
-    </div> 
+      <% sosie = Sosie.find(b.sosie_id) %>
+      <% if sosie.photo.attached? %>
+        <%= cl_image_tag sosie.photo.key, height: 100, width: 100, crop: :thumb, class:"sosie_picture" %>
+      <% end %>
+      <h5 class="card-title">Booking for <strong><%= sosie.name %></strong> </h5>
+      <p class="card-text"><%= b.description %></p>
 
+    </div>
+      <div class="card-footer">
+        <p> Requested at <em><%= b.address %></em> </p>
+        <p>on the <em><%= b.start_date.strftime("%d-%m-%Y  ") %></em></p>
+        <br>
+        <p>Status</p>
+        <p>---------</p>
+        <% if b.status %>
+        <p><strong><%= b.status %></strong></p>
+        <br>
+        <% else %>
+        <p><strong><%= "Pending" %></strong></p>
+        <br>
+        <% end %>
+        <div class="btn-group mb-3" role="group" aria-label= "Basic button group">
+          <button class="btn btn-success"><%= link_to "Confirm", accept_booking_path(b), method: :patch  %></button>
+          <button class="btn btn-danger"><%= link_to "Refuse", refuse_booking_path(b), method: :patch  %></button>
+        </div>
+          <hr>
+          <button class="btn btn-secondary"> <%= link_to "DELETE", booking_path(b), data: {confirm: 'Are you sure?'}, method: :delete %> </button>
+      </div>
+      <hr id="between-cards">
   </div>
+      <% end %>
+</div>
 
-  <div class="btn btn-success btn-lg btn-block" id="create-btn">
-    <%= link_to "Create new sosie", new_sosy_path  %> 
-  </div>
+
+</div>
+  <br>

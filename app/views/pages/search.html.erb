@@ -1,0 +1,13 @@
+<div class="container">
+  <% if @results.blank? %>
+    <p>No sosie found...</p>
+  <% else %>
+    <div class="row">
+      <% @results.each do |sosie| %>
+        <div class="col-md-3">
+          <%= render partial: "sosies/card", locals: {sosie: sosie} %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
