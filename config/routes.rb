@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # resources :users
   get "/profile", to: "users#show", as: "profile"
+  get '/search' => 'pages#search', :as => 'search_page'
   resources :sosies do
     resources :bookings, only: %i[new create show]
   end
@@ -11,4 +12,4 @@ Rails.application.routes.draw do
     patch :refuse, on: :member
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-end 
+end
