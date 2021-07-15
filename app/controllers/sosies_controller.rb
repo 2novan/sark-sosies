@@ -16,7 +16,13 @@ class SosiesController < ApplicationController
   end
 
   def index
-    @sosies = Sosie.all
+    @sosies = Sosie.where.not(latitude: nil, longitude: nil)
+    @markers = @sosies.geocoded.map do |sosie|
+      {
+        lat: sosie.latitude,
+        lng: sosie.longitude
+      }
+    end
   end
 
   def show
