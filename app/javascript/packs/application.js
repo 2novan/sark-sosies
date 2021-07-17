@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("controllers")
 
 
 
@@ -25,6 +26,9 @@ require("channels")
 
 // External imports
 import "bootstrap";
+import "stimulus";
+import "../plugins/price";
+import {totalPrice} from "../plugins/price";
 import "bootstrap-datepicker";
 import "../plugins/flatpickr"; //flatpickr
 import {initFlatpickr} from "../plugins/flatpickr";
@@ -40,3 +44,5 @@ document.addEventListener('turbolinks:load', () => {
     initAutocomplete2();
     initFlatpickr();
 });
+
+import "controllers"

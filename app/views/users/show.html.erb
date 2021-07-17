@@ -77,6 +77,8 @@
         <p><strong><%= "Pending" %></strong></p>
         <br>
         <% end %>
+        <h5>$ <%= b.total_price %></h5>
+        <br>
         <div class="btn-group mb-3" role="group" aria-label= "Basic button group">
           <button class="btn btn-success"><%= link_to "Confirm", accept_booking_path(b), method: :patch  %></button>
           <button class="btn btn-danger"><%= link_to "Refuse", refuse_booking_path(b), method: :patch  %></button>
