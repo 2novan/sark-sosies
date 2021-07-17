@@ -53,6 +53,7 @@
 }
 
 .home-cards{
-  width: 90%;
-  margin-top: 15px;
+  margin: 15px;
+  display: flex;
+  justify-content: space-between;
 }

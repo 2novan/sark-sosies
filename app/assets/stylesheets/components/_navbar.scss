@@ -12,6 +12,16 @@
   width: 40px;
 }
 
+.accessbutton {
+display:flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.shortcuts{
+  margin: 8px;
+}
+
 .search-form {
   border-radius: 10px;
   width: 600px;
