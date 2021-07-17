@@ -3,8 +3,8 @@
   <div class="snapshot">
     <div class="home-cards">
       <div class="row">
-        <% @sosies.first(4).each do |sosie| %>
-          <div class="col-md-3">
+        <% @sosies.first(3).each do |sosie| %>
+          <div class="col-md-4">
             <%= render partial: "sosies/card", locals: {sosie: sosie} %>
           </div>
         <% end %>

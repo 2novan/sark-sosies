@@ -5,6 +5,9 @@
   justify-content: center;
   align-items:center;
   flex-direction: column;
+  min-height: 100%;
+  margin-bottom: 40px;
+  margin-top: 20px;
 }
 
 .welcome{
@@ -50,6 +53,7 @@
 }
 
 .home-cards{
-  width: 90%;
-  margin-top: 15px;
+  margin: 15px;
+  display: flex;
+  justify-content: space-between;
 }

@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "/", class: "navbar-brand home" do %>
+  <%= link_to "/", class: "navbar-brand" do %>
     <%= image_tag "Sark-sosies_logo.png" %>
   <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,29 +16,35 @@
       </div>
     <% end %>
   </div>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <li class="nav-item dropdown">
+<div class="accessbutton">
+  <%= link_to "Profile", profile_path, class: "shortcuts"%>
+  <%= link_to "Logout",  destroy_user_session_path, class: "shortcuts"%>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
           <% if current_user && current_user.avatar.attached? %>
-            <%= cl_image_tag current_user.avatar.key, class: "myavatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile", "/profile", class: "dropdown-item" %>
-              <%= link_to "Log Out", "/users/sign_out", class: "dropdown-item", method: "delete" %>
-            </div>
-          </li>
-        <% elsif current_user %>
-          <li class="nav-item dropdown">
-            <%= image_tag "Unknown_person.jpeg", class: "myavatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile", "/profile", class: "dropdown-item" %>
-              <%= link_to "Log Out", "/users/sign_out", class: "dropdown-item", method: "delete"%>
-            </div>
-          </li>
-        <% else %>
-          <%= link_to "Login / Register", "/users/sign_in", class: "nav-link" %>
-        <% end %>
-      </li>
-    </ul>
+            <li class="dropdown">
+              <%= cl_image_tag current_user.avatar.key, class: "myavatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "Profile", "/profile", class: "dropdown-item" %>
+                <%= link_to "Log Out", "/users/sign_out", class: "dropdown-item", method: "delete" %>
+              </div>
+            </li>
+          <% elsif current_user %>
+            <li class="dropdown">
+              <%= image_tag "Unknown_person.jpeg", class: "myavatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "Profile", "/profile", class: "dropdown-item" %>
+                <%= link_to "Log Out", "/users/sign_out", class: "dropdown-item", method: "delete"%>
+              </div>
+            </li>
+          <% else %>
+            <%= link_to "Login / Register", "/users/sign_in", class: "nav-link" %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
   </div>
+
 </div>
