@@ -27,8 +27,6 @@ require("controllers")
 // External imports
 import "bootstrap";
 import "stimulus";
-import "../plugins/price";
-import {totalPrice} from "../plugins/price";
 import "bootstrap-datepicker";
 import "../plugins/flatpickr"; //flatpickr
 import {initFlatpickr} from "../plugins/flatpickr";
