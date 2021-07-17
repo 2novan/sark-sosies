@@ -101,7 +101,7 @@ compositeurs (Didier BARBELIVIEN, C. JEROME, François VALERY) Elle parcourra
 les années de la carrière de l’immense artiste.", price_per_day: "200", user: User.last})
 
 sosie9.photo.attach(io: File.open(Rails.root.join('app/assets/images/Martine-Ower.png')),
-                  filename: 'Martine-Ower.png')
+                  filename: 'martine-ower.png')
 
 sosie10 = Sosie.create!({address: "5 Rue Michel Columb, 44200 Nantes", celebrity: "Michael Jackson", name: "Mike Joseph", description: "Mike Joseph Jackson France, sosie professionnel 100 % naturel aux nombreuses références médiatiques et prestigieuses, de multiples apparitions télé et des spectacles donnés dans des salles prestigieuses.
 
@@ -111,6 +111,6 @@ Différentes formules vous sont proposées selon votre budget avec jusqu'à 4 da
 ", price_per_day: "500", user: User.last})
 
 sosie10.photo.attach(io: File.open(Rails.root.join('app/assets/images/Mike-joseph.jpg')),
-                  filename: 'Mike-joseph.jpg')
+                  filename: 'mike-joseph.jpg')
 
 puts "done"
