@@ -16,17 +16,29 @@ class SosiesController < ApplicationController
   end
 
   def index
-    @sosies = Sosie.all
+    @sosies = Sosie.where.not(latitude: nil, longitude: nil)
+    @markers = @sosies.geocoded.map do |sosie|
+      {
+        lat: sosie.latitude,
+        lng: sosie.longitude
+      }
+    end
   end
 
   def show
     @sosie = Sosie.find(params[:id])
     @booking = Booking.new
+    @markers = [
+      {
+        lat: @sosie.latitude,
+        lng: @sosie.longitude
+      }
+    ]
   end
 
   private
 
   def sosie_params
-    params.require(:sosie).permit(:name, :description, :address, :price_per_day, :photo)
+    params.require(:sosie).permit(:name, :description, :address, :celebrity, :price_per_day, :photo)
   end
 end

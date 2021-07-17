@@ -1,9 +1,12 @@
-<div class="container">
-  <div class="row">
+<div class="content">
+  <div class="cards">
     <% @sosies.each do |sosie| %>
-      <div class="col-md-3">
-        <%= render partial: "card", locals: {sosie: sosie} %>
-      </div>
+      <%= render partial: "card", locals: {sosie: sosie} %>
     <% end %>
+  </div>
+  <div id="map" class="map-profile"
+    style="padding: 16px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
