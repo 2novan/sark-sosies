@@ -6,6 +6,9 @@ user = User.new({email: "test@email.com", name: "Norman BAGNE", biography: "On m
 user.password = "123456"
 user.save!
 
+user.avatar.attach(io: File.open(Rails.root.join('app/assets/images/godefroy.jpg')),
+                  filename: 'godefroy.jpg')
+
 user = User.new({email: "contact2@sark.com", name: "Sarkozy", biography: Faker::Marketing.buzzwords})
 user.password = "123456"
 user.save!
