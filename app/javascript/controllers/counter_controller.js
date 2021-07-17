@@ -12,7 +12,7 @@ export default class extends Controller {
     // console.log(Date.parse((this.startDateTarget.value).substring(14,24)))
     // console.log((this.startDateTarget.value).substring(13,24))
 
-    
+
 
 
     const startDate = Date.parse((this.startDateTarget.value).substring(0,10))
@@ -36,7 +36,7 @@ export default class extends Controller {
     // const period = endDate.getTime()-startDate.getTime();
     // const period = endDate.getTime()-startDate.getTime();
     // const totalPrice = (new Date(period)*price;
-    // let totalPrice = (endDate - startDate)*price;  
+    // let totalPrice = (endDate - startDate)*price;
     // console.log(endDate);
     // console.log(period);
     // console.log(startDate);
