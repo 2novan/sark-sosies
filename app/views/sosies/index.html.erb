@@ -4,7 +4,7 @@
       <%= render partial: "card", locals: {sosie: sosie} %>
     <% end %>
   </div>
-  <div id="map"
+  <div id="map" class="map-profile"
     style="padding: 16px;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
