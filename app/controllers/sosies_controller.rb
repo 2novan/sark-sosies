@@ -28,6 +28,12 @@ class SosiesController < ApplicationController
   def show
     @sosie = Sosie.find(params[:id])
     @booking = Booking.new
+    @markers = [
+      {
+        lat: @sosie.latitude,
+        lng: @sosie.longitude
+      }
+    ]
   end
 
   private
