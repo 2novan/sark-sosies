@@ -1,10 +1,9 @@
 <div class="content">
   <div class="cards">
     <% @sosies.each do |sosie| %>
-        <%= render partial: "card", locals: {sosie: sosie} %>
+      <%= render partial: "card", locals: {sosie: sosie} %>
     <% end %>
   </div>
-
   <div id="map"
     style="padding: 16px;"
     data-markers="<%= @markers.to_json %>"
