@@ -1,7 +1,11 @@
-<%= simple_form_for [user, sosie, booking] do |f|  %>
-  <%= f.input :start_date, as: :string, required: true, input_html: { id: "range_start" } %>
-  <%= f.input :end_date, as: :string, required: true, input_html: { id: "range_end" } %>
-  <%= f.input :address %>
-  <%= f.input :description %>
-  <%= f.submit %>
-<% end %>
+<div data-controller="counter" data-price="<%=@sosie.price_per_day %>" data-counter-target="price">
+  <%= simple_form_for [user, sosie, booking] do |f|  %>
+    <%= f.input :start_date, as: :string, required: true, input_html: { id: "range_start", "data-action": "change->counter#timePeriod", "data-counter-target": "startDate" }%>
+    <%= f.input :end_date, as: :string, required: true, input_html: { id: "range_end", "data-action": "change->counter#timePeriod", "data-counter-target": "endDate"}%>
+    <%= f.input :address %>
+    <%= f.input :description %>
+    <br>
+    <p>For $ <span data-counter-target='display'> </span> total </p>
+    <%= f.submit %>
+  <% end %>
+</div>
